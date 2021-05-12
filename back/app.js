@@ -3,6 +3,8 @@ const passport = require('passport');
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const path = require('path')
+const hpp = require('hpp')
+const helmet = require('helmet')
 const cors = require('cors')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
@@ -24,9 +26,18 @@ db.sequelize.sync()
     .catch(console.error)
 passportConfig()
 
+
+
+if(process.env.NODE_ENV === 'production'){
+    app.use(morgan('combined'))
+    app.use(hpp())
+    app.use(helmet())
+}else{
+    app.use(morgan('dev'))
+}
 app.use(morgan('dev'))
 app.use(cors({
-    origin: true,
+    origin: ['http://localhost:3060', 'nodebird.com'],
     credentials:true
 }))
 app.use('/',express.static(path.join(__dirname,'uploads'))) // 현재 폴더/uploads/ 운영체제의 차이로 이렇게 적음
