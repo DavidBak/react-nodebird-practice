@@ -69,6 +69,6 @@ app.use('/hashtag', hashtagRouter)
 // })에러 처리 미들웨어, 에러 처리 방법을 바꿔주고 싶을 때, 쓴다.
 
 
-app.listen(3065,()=>{
+app.listen(80,()=>{
     console.log('서버 실행 중!!')
 })
