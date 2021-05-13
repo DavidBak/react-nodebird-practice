@@ -37,7 +37,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 app.use(morgan('dev'))
 app.use(cors({
-    origin: ['http://localhost:3060', 'nodebird.com', 'http://54.180.159.243'],
+    origin: ['http://localhost:3060', 'nodebird.com', 'http://13.209.97.15'],
     credentials:true
 }))
 app.use('/',express.static(path.join(__dirname,'uploads'))) // 현재 폴더/uploads/ 운영체제의 차이로 이렇게 적음
