@@ -37,7 +37,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 app.use(morgan('dev'))
 app.use(cors({
-    origin: ['http://localhost:3060', 'nodebird.com', 'http://13.209.97.15'],
+    origin: ['http://localhost:3060', 'http://walkwithus.shop'],
     credentials:true
 }))
 app.use('/',express.static(path.join(__dirname,'uploads'))) // 현재 폴더/uploads/ 운영체제의 차이로 이렇게 적음
@@ -47,7 +47,12 @@ app.use(cookieParser())
 app.use(session({
     saveUninitialized: false,
     resave: false,
-    secret: process.env.COOKIE_SECRET
+    secret: process.env.COOKIE_SECRET,
+    cookie:{
+        httpOnly:true,
+        secure:false,
+        domain:process.env.NODE_ENV === 'production' && '.walkwithus.shop'
+    }
 }
 ));
 app.use(passport.initialize())
