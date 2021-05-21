@@ -4,7 +4,7 @@ import { Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-const { Textarea } = Input;
+const { TextArea } = Input;
 const PostCardContent = ({ postData, editMode, onCancelUpdate, onChangePost }) => {
   const { updatePostLoading, updatePostDone } = useSelector((state) => state.post);
   const [editText, setEditText] = useState(postData);
@@ -23,7 +23,7 @@ const PostCardContent = ({ postData, editMode, onCancelUpdate, onChangePost }) =
     <div>
       {editMode ? (
         <>
-          <Textarea value={editText} onChagne={onChangeText} />
+          <TextArea value={editText} onChange={onChangeText} />
           <Button.Group>
 
             <Button loading={updatePostLoading} onClick={onChangePost(editText)}>수정</Button>
@@ -45,8 +45,8 @@ const PostCardContent = ({ postData, editMode, onCancelUpdate, onChangePost }) =
 PostCardContent.propTypes = {
   postData: PropTypes.string.isRequired,
   editMode: PropTypes.bool,
-  onCancelUpdate: PropTypes.func.isRequired,
   onChangePost: PropTypes.func.isRequired,
+  onCancelUpdate: PropTypes.func.isRequired,
 };
 
 PostCardContent.defaultProps = {

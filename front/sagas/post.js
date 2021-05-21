@@ -30,7 +30,7 @@ function* retweet(action) {
   } catch (err) {
     yield put({
       type: RETWEET_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -49,7 +49,7 @@ function* uploadImages(action) {
   } catch (err) {
     yield put({
       type: UPLOAD_IMAGES_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -68,7 +68,7 @@ function* likePost(action) {
   } catch (err) {
     yield put({
       type: LIKE_POST_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -87,7 +87,7 @@ function* unlikePost(action) {
   } catch (err) {
     yield put({
       type: UNLIKE_POST_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -110,7 +110,7 @@ function* addPost(action) {
   } catch (err) {
     yield put({
       type: ADD_POST_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -129,7 +129,7 @@ function* loadPost(action) {
   } catch (err) {
     yield put({
       type: LOAD_POST_FAILURE,
-      error: err.data,
+      error: err.name,
     });
   }
 }
@@ -149,7 +149,7 @@ function* loadHashtagPosts(action) {
     console.error(err);
     yield put({
       type: LOAD_HASHTAG_POSTS_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -169,7 +169,7 @@ function* loadUserPosts(action) {
     console.error(err);
     yield put({
       type: LOAD_USER_POSTS_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -189,7 +189,7 @@ function* loadPosts(action) {
     console.error(err);
     yield put({
       type: LOAD_POSTS_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -209,7 +209,7 @@ function* addComment(action) {
     console.error(err);
     yield put({
       type: ADD_COMMENT_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -233,7 +233,7 @@ function* removePost(action) {
     console.error(err);
     yield put({
       type: REMOVE_POST_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
@@ -253,7 +253,7 @@ function* updatePost(action) {
     console.error(err);
     yield put({
       type: UPDATE_POST_FAILURE,
-      error: err.response.data,
+      error: err.name,
     });
   }
 }
