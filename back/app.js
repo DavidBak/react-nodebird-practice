@@ -27,8 +27,8 @@ db.sequelize.sync()
 passportConfig()
 
 
-
 if(process.env.NODE_ENV === 'production'){
+    app.set('trust proxy', 1);
     app.use(morgan('combined'))
     app.use(hpp())
     app.use(helmet())
@@ -37,7 +37,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 app.use(morgan('dev'))
 app.use(cors({
-    origin: ['http://localhost:3060', 'http://walkwithus.shop'],
+    origin: ['http://localhost:3060', 'https://walkwithus.shop'],
     credentials:true
 }))
 app.use('/',express.static(path.join(__dirname,'uploads'))) // 현재 폴더/uploads/ 운영체제의 차이로 이렇게 적음
@@ -48,9 +48,10 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     secret: process.env.COOKIE_SECRET,
-    cookie:{
+    proxy: true, 
+        cookie:{
         httpOnly:true,
-        secure:false,
+        secure:true,
         domain:process.env.NODE_ENV === 'production' && '.walkwithus.shop'
     }
 }
