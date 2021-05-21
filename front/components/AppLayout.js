@@ -43,7 +43,7 @@ const AppLayout = ({ children }) => {
       <Global />
       <Menu mode="horizontal">
         <Menu.Item>
-          <Link href="/"><a>노드버드</a></Link>
+          <Link href="/"><a>홈</a></Link>
         </Menu.Item>
         <Menu.Item>
           <Link href="/profile"><a>프로필</a></Link>
@@ -66,7 +66,7 @@ const AppLayout = ({ children }) => {
           {children}
         </Col>
         <Col xs={24} md={6}>
-          <a href="https://www.zerocho.com" target="_blank" rel="noreferrer noopener">ZeroCho</a>
+          <a href="https://naturenscent.tistory.com/" target="_blank" rel="noreferrer noopener">Blog</a>
         </Col>
       </Row>
 

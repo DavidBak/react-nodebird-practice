@@ -70,12 +70,12 @@ const PostForm = () => {
         value={text}
         onChange={onChangeText}
         maxLength={140}
-        placeholder="세상을 밝게"
+        placeholder="내용을 입력해주세요"
       />
       <div>
         <input type="file" name="image" mutiple hidden ref={imageInput} onChange={onChangeImages} />
         <Button onClick={onClickImageUpload}>이미지 업로드</Button>
-        <Button type="primary" style={{ float: 'right' }} htmlType="submit">짹짹</Button>
+        <Button type="primary" style={{ float: 'right' }} htmlType="submit">트윗</Button>
       </div>
       <div>
         {imagePaths.map((v, i) => (
