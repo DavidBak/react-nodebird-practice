@@ -49,7 +49,7 @@ PostCardContent.propTypes = {
   onChangePost: PropTypes.func.isRequired,
 };
 
-PostCardContent.propTypes = {
+PostCardContent.defaultProps = {
   editMode: false,
 };
 
